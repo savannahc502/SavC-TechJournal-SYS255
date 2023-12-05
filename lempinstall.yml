@@ -19,3 +19,38 @@
 	  yum: 
 	    name: nginx
         state: present
+	
+- name: Updating the Firewall Ports
+  hosts: targets
+  become: yes
+  
+  tasks: 
+    - name: Add 80/tcp to Firewall
+      firewalld: 
+        port: 80/tcp
+        permanent: yes
+        state: enabled
+    
+    - name: Add 443/tcp to Firewall 
+      firewalld: 
+        port: 443/tcp
+        permanent: yes
+        state: enabled
+      
+    - name: Add http to Firewall Services
+      firewalld: 
+        service: http
+        permanent: yes
+        state: enabled
+        
+    - name: Add https to Firewall Services
+      firewalld:
+        service: https
+        permanent: yes
+        state: enabled
+    
+  handlers: 
+    - name: Reload firewalld
+      systemd:
+        name: firewalld
+        state: restarted
