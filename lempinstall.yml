@@ -1,0 +1,21 @@
+# Ansible Playbook to Install LEMP Stack
+
+- name: Update the Machine and Install Nginx
+  hosts: targets
+  become: yes # Runs the tasks with sudo power
+  
+  tasks: 
+    - name: Update Command
+	  yum:
+	    name: '*'
+        state: latest
+		
+    - name: Install epel-release
+	  yum: 
+	    name: epel-release
+        state: present
+		
+    - name: Install Nginx
+	  yum: 
+	    name: nginx
+        state: present
