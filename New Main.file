@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html>
-<title>
 <head>
-<title style="background-color:powderblue; text-align:center;">
-Welcome to BobHater Group
+    <title>Welcome to <link>BobHater Group</link></title>
+    <style>
+        body {
+            background-color: LightGray;
+        }
+        h2 {
+            font-family: Verdana;
+            text-align: center;
+            color: SlateBlue;
+        }
+        p {
+            font-family: Courier;
+            text-align: center;
+            background-color: Gray;
+            border: 2px solid black;
+        }
+    </style>
 </head>
-</title>
-
-<body style="background-color:LightGray;">
-
-<h2 style="font-family:Verdana; text-align:center; color:SlateBlue;"> 
-<?php
-echo "This is a wesbite decidated to all of the Bob Haters."
-?>
-</h2>
-<p style="font-family:Courier; text-align:center; background-color:Gray; border:2px solid black;"> 
-<?php
-echo "Throughout SYS255 history, the Bobs have taken advantage of our generous service. We have helped the Bobs, given them access to stuff, and made sure they could login to their accounts. But once we denied them access to Alice's management files, Bob turned against us. He stole our DCHP server and ran away with it."
-?>
-</p>
-<p style="font-family:Courier; text-align:center; background-color:Gray; border:2px solid black;">
-<?php
-echo "Now, we dedicate this website to the ones who have suffered by the hands of EVIL BOB"
-?>
-<p style="text-align:center; border:2px solid black;">
-<img src=https://images.lbc.co.uk/images/250732?crop=16_9&width=660&relax=1&format=webp&signature=JfpH-D0ZovooYaP10gZvSlEWm6Y= >
-</p>
-
-<p style="font-family:Courier; text-align:center; background-color:Gray; border:2px solid black;">
-<?php
-echo "In order to keep track of Bob's crimes, we keep the date down bellow. It will stay here and change until Bob is finally punished for his crimes. Then the date will stop at the exact time when Bob went to jail"
-echo 'today's date is <b>'. date('Y/m/d') . '</b> and it's a <b>'.date('l').'</b> today';
-?>
-</p>
-
+<body>
+    <h2>
+        <?php
+        echo "This is a website dedicated to all of the <link>Bob Haters</link>.";
+        ?>
+    </h2>
+    <p>
+        <?php
+        echo "Throughout SYS255 history, the <link>Bobs</link> have taken advantage of our generous service. We have helped the <link>Bobs</link>, given them access to stuff, and made sure they could log in to their accounts. But once we denied them access to Alice's management files, <link>Bob</link> turned against us. He stole our DCHP server and ran away with it.";
+        ?>
+    </p>
+    <p>
+        <?php
+        echo "Now, we dedicate this website to the ones who have suffered at the hands of <link>EVIL BOB</link>";
+        ?>
+    </p>
+    <p style="text-align: center; border: 2px solid black;">
+        <img src="<link>https://images.lbc.co.uk/images/250732?crop=16_9&width=660&relax=1&format=webp&signature=JfpH-D0ZovooYaP10gZvSlEWm6Y=</link>" >
+    </p>
+    <p>
+        <?php
+        echo "In order to keep track of <link>Bob's</link> crimes, we keep the date below. It will stay here and change until <link>Bob</link> is finally punished for his crimes. Then the date will stop at the exact time when <link>Bob</link> went to jail";
+        echo "today's date is <b>". date('Y/m/d') . "</b> and it's a <b>".date('l')."</b> today";
+        ?>
+    </p>
 </body>
 </html>
