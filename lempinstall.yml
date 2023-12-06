@@ -133,11 +133,11 @@
         - php-mysqlnd      
         - php-fpm
  
- - name: Final Instructions for User
-   hosts: targets
-   become: yes
+- name: Final Instructions for User
+  hosts: targets
+  become: yes
    
-   tasks: 
+  tasks: 
     - name: Printing Final Instructions for User
       shell: echo "Please open the finalinstructions.txt file that has been downloaded to your current directory
       for instructions on how to finalize installation."
