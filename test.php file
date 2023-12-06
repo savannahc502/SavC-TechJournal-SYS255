@@ -1,44 +1,55 @@
-<title>
+<!DOCTYPE html>
+<html>
 <head>
-<title style="background-color:powderblue; text-align:center;">
-Welcome to BobHater Group
+    <title>Welcome to BobHater Group</title>
+    <style>
+        body {
+            background-color: LightGray;
+        }
+        h2 {
+            font-family: Verdana;
+            text-align: center;
+            color: SlateBlue;
+        }
+        p {
+            font-family: Courier;
+            text-align: center;
+            background-color: Gray;
+            border: 2px solid black;
+        }
+    </style>
 </head>
-</title>
+<body>
+    <h2>
+        <?php
+        echo "This is a website dedicated to all of the Bob Haters.";
+        ?>
+    </h2>
+    <p>
+        <?php
+        echo "Throughout SYS255 history, the Bobs have taken advantage of our generous service. We have helped the Bobs, given them access to stuff, and made sure they could login to their accounts. But once we denied them access to Alice's management files, Bob turned against us. He stole our DCHP server and ran away with it.";
+        ?>
+    </p>
+    <p>
+        <?php
+        echo "Now, we dedicate this website to the ones who have suffered by the hands of EVIL BOB";
+        ?>
+    </p>
+    <p style="text-align: center; border: 2px solid black;">
+        <img src="https://images.lbc.co.uk/images/250732?crop=16_9&width=660&relax=1&format=webp&signature=JfpH-D0ZovooYaP10gZvSlEWm6Y=" >
+    </p>
+    <?php
+    // Input Section
+    // Gets Input on what they write
+    echo "If you could, please enter a time where Bob has been a pain in your life";
+    $write = (string)readline("Enter it here: ");
 
-<body style="background-color:LightGray;">
+    $name = (string)readline("Please enter your name: ");
 
-<h2 style="font-family:Verdana; text-align:center; color:SlateBlue;"> 
-<?php
-echo "This is a wesbite decidated to all of the Bob Haters."
-?>
-</h2>
-<p style="font-family:Courier; text-align:center; background-color:Gray; border:2px solid black;"> 
-<?php
-echo "Throughout SYS255 history, the Bobs have taken advantage of our generous service. We have helped the Bobs, given them access to stuff, and made sure they could login to their accounts. But once we denied them access to Alice's management files, Bob turned against us. He stole our DCHP server and ran away with it."
-?>
-</p>
-<p style="font-family:Courier; text-align:center; background-color:Gray; border:2px solid black;">
-<?php
-echo "Now, we dedicate this website to the ones who have suffered by the hands of EVIL BOB"
-?>
-<p style="text-align:center; border:2px solid black;">
-<img src=https://images.lbc.co.uk/images/250732?crop=16_9&width=660&relax=1&format=webp&signature=JfpH-D0ZovooYaP10gZvSlEWm6Y= >
-</p>
+    echo "This below shows what you have entered. Thank you for adding something to our website; your answer has been recorded.";
 
-</p>
-<?php
-//Input Section
-// Gets Input on what they write
-echo "If you could, please enter a time where Bob has been a pain in your life"
-$write = (string)readline("Enter it here: ")
-
-$name = (string)readline("Please enter your name: )
-
-echo "This bellow shows what you have entered. Thank you for adding something to our website your answer has been recorded."
-
-echo "Thank you ".$name.
-echo "This is what you wrote: ".$write
-<?>
-
+    echo "Thank you ".$name.".";
+    echo "This is what you wrote: ".$write;
+    ?>
 </body>
 </html>
