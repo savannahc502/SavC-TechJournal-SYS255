@@ -19,7 +19,7 @@
 	  yum: 
 	    name: nginx
         state: present
-	
+        
 - name: Updating the Firewall Ports
   hosts: targets
   become: yes
@@ -54,3 +54,114 @@
       systemd:
         name: firewalld
         state: restarted
+        
+- name: Start and Enable Nginx service
+  hosts: targets
+  become: yes
+  
+  tasks: 
+    - name: Start Nginx Service
+      systemd: 
+        name: nginx
+        state: started
+      become: yes
+
+    - name: Enable Nginx Service
+      systemd: 
+        name: nginx
+        enabled: yes
+      become: yes
+      
+- name: Install, Start, and Enable MariaDB MySQL
+  hosts: targets
+  become: yes
+  
+  tasks:
+    - name: Install MariaDB
+      yum: 
+        name: 
+          - mariadb-server 
+          - mariadb 
+        state: present
+      
+    - name: Start MariaDB
+      systemd: 
+        name: mariadb
+        state: started
+       become: yes
+       
+    - name: Enable MariaDB
+      systemd: 
+        name: mariadb
+        enabled: yes 
+      become: yes
+      
+    # - name: Setting MariaDB Root Password
+        # command: mysql_secure_installation
+
+- name: Install, Start, and Enable PHP
+  hosts: targets 
+  become: yes
+  
+  tasks: 
+    - name: Install PHP Remi Repository 
+      yum: 
+        name: 
+           - epel-release
+           - http://rpms.remirepo.net/enterprise/remi-release-7.rpms
+        state: present
+    
+    - name: Enable Remi for PHP 7.4
+      command: yum-config-manager --enable remi-php74
+      
+    - name: Start PHP-FPM
+      systemd: 
+        name: php-fpm
+        state: started
+       become: yes
+       
+    - name: Enable PHP-FPM
+      systemd: 
+        name: php-fpm
+        enabled: yes 
+      become: yes
+      
+    - name: Install PHP, PHP-MySQLnd and PHP-FPM
+      yum: 
+        name: 
+        - php
+        - php-mysqlnd      
+        - php-fpm
+ 
+ - name: Final Instructions for User
+   hosts: targets
+   become: yes
+   
+   tasks: 
+    - name: Printing Final Instructions for User
+      shell: echo "Please open the finalinstructions.txt file that has been downloaded to your current directory
+      for instructions on how to finalize installation."
+      register: command_output
+      
+    - name: Display the Final Instructions
+      debug: 
+        var: command_output.stdout_lines
+        
+    - name: Creating finalinstructions.txt
+      lineinfile: 
+        path: "{{ lookup('env', 'HOME') }}/finalinstructions.txt" 
+        create: yes
+        line: | 
+          These are the final instructions for setting up you LEMP stack. 
+          /n1. Edit the /etc/php-fpm.d/www.conf file to have user and group equal nginx instead of apache. 
+          /n2. In the same file, change the listen directive to /var/run/php-fpm/php-fpm.sock; 
+          /n3. In the same file, chnage the listen.owner and listen.group to nginx and uncomment listen.mode. 
+          /n4. Run "sudo systemctl restart php" 
+          /n5. In the /etc/nginx/conf.d/default.conf file, change the server_name to your IP address. 
+          /n6. In the same file, change the fastcgi_pass unix to be "fastcgi_pass unix: /var/run/php-fpm/php-fpm.sock
+          /n7. Test that the system works with the command "nginx -t" 
+          /n8. Run "sudo systemctl restart nginx"
+          /n9. Run "sudo chown -R admin.wheel /usr/share/nginx/html" 
+          /n10. Now you can make php files in /usr/share/nginx/html/. Test this by navigating in a browser to the correct page. 
+        
+        
