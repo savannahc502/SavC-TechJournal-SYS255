@@ -48,5 +48,24 @@
         echo "today's date is <b>". date('Y/m/d') . "</b> and it's a <b>".date('l')."</b> today";
         ?>
     </p>
+<p>
+<?php
+echo "If you have a story about a time where you confronted Bob and his awful schemes, please let us know down below"
+?>
+<p>
+<p>
+<?php
+  
+// Input section
+// get users name
+$name = (string)readline("Please enter your name: ")
+
+$story = (string)readline('Enter an integer: ');
+ 
+// Checks to make sure
+echo "Hello ".$name." The story you submitted is ".$story
+?>
+</p>
+
 </body>
 </html>
