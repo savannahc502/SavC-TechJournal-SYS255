@@ -139,8 +139,7 @@
    
   tasks: 
     - name: Printing Final Instructions for User
-      shell: echo "Please open the finalinstructions.txt file that has been downloaded to your current directory
-      for instructions on how to finalize installation."
+      shell: echo "Please open the finalinstructions.txt file that has been downloaded to your current directory for instructions on how to finalize installation."
       register: command_output
       
     - name: Display the Final Instructions
