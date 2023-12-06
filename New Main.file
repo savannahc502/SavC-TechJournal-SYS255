@@ -36,11 +36,15 @@
         ?>
     </p>
     <p style="text-align: center; border: 2px solid black;">
-        <img src="<link>https://images.lbc.co.uk/images/250732?crop=16_9&width=660&relax=1&format=webp&signature=JfpH-D0ZovooYaP10gZvSlEWm6Y=</link>" >
+        <img src="https://images.lbc.co.uk/images/250732?crop=16_9&width=660&relax=1&format=webp&signature=JfpH-D0ZovooYaP10gZvSlEWm6Y=" >
     </p>
     <p>
         <?php
         echo "In order to keep track of <link>Bob's</link> crimes, we keep the date below. It will stay here and change until <link>Bob</link> is finally punished for his crimes. Then the date will stop at the exact time when <link>Bob</link> went to jail";
+        ?>
+    </p>
+    <p>
+        <?php
         echo "today's date is <b>". date('Y/m/d') . "</b> and it's a <b>".date('l')."</b> today";
         ?>
     </p>
