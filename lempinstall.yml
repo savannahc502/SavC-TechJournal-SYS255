@@ -118,7 +118,7 @@
       systemd: 
         name: php-fpm
         state: started
-       become: yes
+      become: yes
        
     - name: Enable PHP-FPM
       systemd: 
