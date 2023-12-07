@@ -41,6 +41,7 @@
     <p>
         If you have a story about a time when you confronted Bob and his awful schemes, please let us know below.
     </p>
+    <?php
     <form action="process_form.php" method="post">
         <label for="write">Enter a time when Bob has been a pain in your life:</label><br>
         <input type="text" id="write" name="write"><br>
@@ -48,5 +49,6 @@
         <input type="text" id="name" name="name"><br><br>
         <input type="submit" value="Submit">
     </form>
+    ?>
 </body>
 </html>
