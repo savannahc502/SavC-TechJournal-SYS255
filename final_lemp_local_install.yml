@@ -142,28 +142,5 @@
       package:
         name: wget
         state: present
- 
-- name: Final Instructions for User
-  hosts: targets
-  become: true
-   
-  tasks: 
-    - name: Ensure /tmp directory exists
-      file: 
-        path: "/tmp"
-        state: directory
-      delegate_to: localhost
-
-    - name: Ensure that the new file exists
-      file: 
-        path: "/tmp/final_instructions.txt" 
-        state: touch
-      delegate_to: localhost
-
-    - name: Download Final Instructions to /tmp/final_instructions.txt
-      uri:
-        url: "https://raw.githubusercontent.com/savannahc502/SavC-TechJournal-SYS255/main/final_instructions.txt"
-        dest: "/tmp/final_instructions.txt" 
-        method: GETls
         
         
