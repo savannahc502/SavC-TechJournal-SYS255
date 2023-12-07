@@ -2,6 +2,17 @@
 <html>
 <head>
     <title>Thank You</title>
+    <style>
+        body {
+            background-color: LightGray;
+        }
+        <link>h2</link> {
+            font-family: Verdana;
+        }
+        <link>p</link> {
+            font-family: Courier;
+        }
+    </style>
 </head>
 <body>
     <h2>Thank You</h2>
@@ -9,10 +20,3 @@
     <p><?php echo $_POST['write']; ?></p>
 </body>
 </html>
-
-
-"""
-To display a "thank you" message after the form has been submitted, you can achieve this within the process_form.php file, which will handle the form submission and process the input data. Here's an example of how you can do it:
-- Create a new file named process_form.php.
-- Inside process_form.php, you can use PHP to process the form data and then display a "thank you" message.
-"""
