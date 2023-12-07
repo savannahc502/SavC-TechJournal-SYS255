@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Welcome to <link>BobHater Group</link></title>
+    <title>Welcome to BobHater Group</title>
     <style>
         body {
             background-color: LightGray;
         }
-        h2 {
+        <link>h2</link> {
             font-family: Verdana;
             text-align: center;
             color: SlateBlue;
         }
-        p {
+        <link>p</link> {
             font-family: Courier;
             text-align: center;
             background-color: Gray;
@@ -21,47 +21,32 @@
 </head>
 <body>
     <h2>
-        <?php
-        echo "This is a website dedicated to all of the <link>Bob Haters</link>.";
-        ?>
+        This is a website dedicated to all of the Bob Haters.
     </h2>
     <p>
-        <?php
-        echo "Throughout SYS255 history, the <link>Bobs</link> have taken advantage of our generous service. We have helped the <link>Bobs</link>, given them access to stuff, and made sure they could log in to their accounts. But once we denied them access to Alice's management files, <link>Bob</link> turned against us. He stole our DCHP server and ran away with it.";
-        ?>
+        Throughout SYS255 history, the Bobs have taken advantage of our generous service. We have helped the Bobs, giving them access to stuff, and making sure they could log in to their accounts. But once we denied them access to Alice's management files, Bob turned against us. He stole our DCHP server and ran away with it.";
     </p>
     <p>
-        <?php
-        echo "Now, we dedicate this website to the ones who have suffered at the hands of <link>EVIL BOB</link>";
-        ?>
+        Now, we dedicate this website to the ones who have suffered at the hands of EVIL BOB.
     </p>
     <p style="text-align: center; border: 2px solid black;">
-        <img src="https://images.lbc.co.uk/images/250732?crop=16_9&width=660&relax=1&format=webp&signature=JfpH-D0ZovooYaP10gZvSlEWm6Y=" >
+        <img src="https://images.lbc.co.uk/images/250732?crop=16_9&width=660&relax=1&format=webp&signature=JfpH-D0ZovooYaP10gZvSlEWm6Y" >
     </p>
     <p>
-        <?php
-        echo "In order to keep track of <link>Bob's</link> crimes, we keep the date below. It will stay here and change until <link>Bob</link> is finally punished for his crimes. Then the date will stop at the exact time when <link>Bob</link> went to jail";
-        ?>
+        In order to keep track of Bob's crimes, we keep the date below. It will stay here and change until Bob is finally punished for his crimes. Then the date will stop at the exact time when Bob went to jail";
     </p>
     <p>
-        <?php
-        echo "today's date is <b>". date('Y/m/d') . "</b> and it's a <b>".date('l')."</b> today";
-        ?>
+        today's date is <b><?php echo date('Y/m/d'); ?></b> and it's a <b><?php echo date('l'); ?></b> today.
     </p>
-<p>
-<?php
-echo "If you have a story about a time when you confronted Bob and his awful schemes, please let us know down below"
-?>
-<p>
-<p>
-<?php
+    <p>
+        If you have a story about a time when you confronted Bob and his awful schemes, please let us know below.
+    </p>
     <form action="process_form.php" method="post">
-        <label for="write">Enter a time where <link>Bob</link> has been a pain in your life:</label><br>
+        <label for="write">Enter a time when Bob has been a pain in your life:</label><br>
         <input type="text" id="write" name="write"><br>
         <label for="name">Please enter your name:</label><br>
         <input type="text" id="name" name="name"><br><br>
         <input type="submit" value="Submit">
     </form>
-?>
 </body>
 </html>
