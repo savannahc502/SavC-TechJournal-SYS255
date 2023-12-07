@@ -151,7 +151,8 @@
           echo 7. Test that the system works with the command 'nginx -t'
           echo 8. Run 'sudo systemctl restart nginx'
           echo 9. Run 'sudo chown -R admin.wheel /usr/share/nginx/html'
-          echo 10. Now you can make php files in /usr/share/nginx/html/. Test this by navigating in a browser to the correct page.
+          echo 10. Run 'sudo mysql_secure_installation' and set a root password. Press enter for default values. 
+          echo 11. Now you can make php files in /usr/share/nginx/html/. Test this by navigating in a browser to the correct pages. 
       register: command_output
       
     - name: Display the Final Instructions
