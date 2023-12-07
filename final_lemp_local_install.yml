@@ -1,0 +1,166 @@
+# Ansible Playbook to Install LEMP Stack
+
+- name: Update the Machine and Install Nginx
+  hosts: targets
+  become: yes # Runs the tasks with sudo power
+  
+  tasks: 
+    - name: Update Command
+      yum:
+        name: '*'
+        state: latest
+		
+    - name: Install epel-release
+      yum: 
+        name: epel-release
+        state: present
+		
+    - name: Install Nginx
+      yum: 
+        name: nginx
+        state: present
+        
+- name: Updating the Firewall Ports
+  hosts: targets
+  become: yes
+  
+  tasks: 
+    - name: Add 80/tcp to Firewall
+      firewalld: 
+        port: 80/tcp
+        permanent: yes
+        state: enabled
+    
+    - name: Add 443/tcp to Firewall 
+      firewalld: 
+        port: 443/tcp
+        permanent: yes
+        state: enabled
+      
+    - name: Add http to Firewall Services
+      firewalld: 
+        service: http
+        permanent: yes
+        state: enabled
+        
+    - name: Add https to Firewall Services
+      firewalld:
+        service: https
+        permanent: yes
+        state: enabled
+    
+  handlers: 
+    - name: Reload firewalld
+      systemd:
+        name: firewalld
+        state: restarted
+        
+- name: Start and Enable Nginx service
+  hosts: targets
+  become: yes
+  
+  tasks: 
+    - name: Start Nginx Service
+      systemd: 
+        name: nginx
+        state: started
+      become: yes
+
+    - name: Enable Nginx Service
+      systemd: 
+        name: nginx
+        enabled: yes
+      become: yes
+      
+- name: Install, Start, and Enable MariaDB MySQL
+  hosts: targets
+  become: yes
+  
+  tasks:
+    - name: Install MariaDB
+      yum: 
+        name: 
+          - mariadb-server 
+          - mariadb 
+        state: present
+      
+    - name: Start MariaDB
+      systemd: 
+        name: mariadb
+        state: started
+      become: yes
+       
+    - name: Enable MariaDB
+      systemd: 
+        name: mariadb
+        enabled: yes 
+      become: yes
+      
+    # - name: Setting MariaDB Root Password
+        # command: mysql_secure_installation
+
+- name: Install, Start, and Enable PHP
+  hosts: targets 
+  become: yes
+  
+  tasks: 
+    - name: Install PHP Remi Repository 
+      yum: 
+        name: 
+           - epel-release
+           - http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+        state: present
+    
+    - name: Enable Remi for PHP
+      command: yum-config-manager --enable remi-php74
+      
+    - name: Install PHP, PHP-MySQLnd and PHP-FPM
+      yum: 
+        name: 
+          - php
+          - php-mysqlnd      
+          - php-fpm
+      
+    - name: Start PHP-FPM
+      systemd: 
+        name: php-fpm
+        state: started
+      become: yes
+       
+    - name: Enable PHP-FPM
+      systemd: 
+        name: php-fpm
+        enabled: yes 
+      become: yes
+
+- name: Install wget
+  hosts: targets
+  become: true  
+
+  tasks:
+    - name: Install wget
+      package:
+        name: wget
+        state: present
+ 
+- name: Final Instructions for User
+  hosts: targets
+  become: true
+   
+  tasks: 
+    - name: Ensure /tmp directory exists
+	  file: 
+	    path: "/tmp"
+		state: directory
+	  delegate_to: localhost
+	
+	- name: Ensure that the new file exists
+	  file: 
+	    path: "/tmp/final_instructions.txt" 
+		state: touch
+	  delegate_to: localhost
+
+    - name: Download Final Instructions to /tmp/final_instructions.txt
+	  shell: wget -0 /tmp/final_instructions.txt https://raw.githubusercontent.com/savannahc502/SavC-TechJournal-SYS255/main/final_instructions.txt
+        
+        
