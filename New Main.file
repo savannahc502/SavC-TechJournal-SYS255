@@ -50,22 +50,18 @@
     </p>
 <p>
 <?php
-echo "If you have a story about a time where you confronted Bob and his awful schemes, please let us know down below"
+echo "If you have a story about a time when you confronted Bob and his awful schemes, please let us know down below"
 ?>
 <p>
 <p>
 <?php
-  
-// Input section
-// get users name
-$name = (string)readline("Please enter your name: ")
-
-$story = (string)readline('Enter an integer: ');
- 
-// Checks to make sure
-echo "Hello ".$name." The story you submitted is ".$story
+    <form action="process_form.php" method="post">
+        <label for="write">Enter a time where <link>Bob</link> has been a pain in your life:</label><br>
+        <input type="text" id="write" name="write"><br>
+        <label for="name">Please enter your name:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+        <input type="submit" value="Submit">
+    </form>
 ?>
-</p>
-
 </body>
 </html>
