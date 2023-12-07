@@ -168,11 +168,11 @@
       register: command_output
 
     - name: Save Final Instructions to File
-	  lineinfile:
-	    path: "/tmp/final_instructions.txt" 
-		line: "{{ item }}"
-	  loop: "{{ command_output.stdout_lines }}" 
-	  delegate_to: localhost
+      lineinfile:
+	path: "/tmp/final_instructions.txt" 
+	line: "{{ item }}"
+      loop: "{{ command_output.stdout_lines }}" 
+      delegate_to: localhost
       
     - name: Display the Final Instructions
       debug: 
