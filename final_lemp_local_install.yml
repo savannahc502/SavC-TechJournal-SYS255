@@ -161,6 +161,9 @@
       delegate_to: localhost
 
     - name: Download Final Instructions to /tmp/final_instructions.txt
-      shell: wget -0 /tmp/final_instructions.txt https://raw.githubusercontent.com/savannahc502/SavC-TechJournal-SYS255/main/final_instructions.txt
+      uri:
+        url: "https://raw.githubusercontent.com/savannahc502/SavC-TechJournal-SYS255/main/final_instructions.txt"
+        dest: "/tmp/final_instructions.txt" 
+        method: GETls
         
         
