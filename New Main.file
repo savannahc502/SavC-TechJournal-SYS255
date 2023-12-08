@@ -6,17 +6,17 @@
         body {
             background-color: LightGray;
         }
-        <link>h2</link> {
+        <h2> {
             font-family: Verdana;
             text-align: center;
             color: SlateBlue;
-        }
-        <link>p</link> {
+        } </h2>
+        <p> {
             font-family: Courier;
             text-align: center;
             background-color: Gray;
             border: 2px solid black;
-        }
+        } </p>
     </style>
 </head>
 <body>
