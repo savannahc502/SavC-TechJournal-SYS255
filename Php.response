@@ -6,10 +6,10 @@
         body {
             background-color: LightGray;
         }
-        <link>h2</link> {
+        h2 {
             font-family: Verdana;
         }
-        <link>p</link> {
+        p {
             font-family: Courier;
         }
     </style>
