@@ -13,4 +13,4 @@ Savannah Ciak and Lily Pouliot worked together to create a basic web application
 * The main.php file also works with HTML, as it was used to create a photo, include text, and decorate the entire website. 
 
 *** 
-See the Wiki Page for Build Documentation
+See the Wiki Page for [Build Documentation](https://github.com/savannahc502/SavC-TechJournal-SYS255/wiki/Final-Project%3A-LEMP-Stack-and-Automation)
