@@ -1,4 +1,10 @@
-# SavC-TechJournal-SYS255
+# SYS-255 Welcome
+Welcome to the SavC-TechJournal-SYS255 wiki! This chronicles my labs and notes from Champlain College's SYS-255 class. Some material may be copied from my notes, textbooks, online sources, and Champlain College's materials. **Copying from this or any of my wikis is discouraged due to your risk of committing plagiarism and copyright issues.** 
+
+***Please see the [wiki page](https://github.com/savannahc502/SavC-TechJournal-SYS255/wiki) for class notes and projects***
+
+***
+# Final Project Build: LEMP Stack
 
 ***Introduction***
 
